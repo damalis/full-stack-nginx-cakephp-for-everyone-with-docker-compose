@@ -37,7 +37,7 @@ services:
 
     webserver:
         depends_on:
-            - yiiframework
+            - cakephp
         image: nginx:stable
         container_name: webserver
         networks:
@@ -65,7 +65,7 @@ services:
             - '80:80'
             - '443:443'
         links:
-            - yiiframework
+            - cakephp
         environment:
             NGINX_HOST: ${DOMAIN_NAME}
             NGINX_PORT: 80
@@ -76,7 +76,7 @@ services:
     
     certbot:
         depends_on:
-            - proxy
+            - webserver
         image: certbot/certbot
         container_name: certbot
         networks:
