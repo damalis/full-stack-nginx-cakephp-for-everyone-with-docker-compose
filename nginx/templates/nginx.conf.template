@@ -46,6 +46,7 @@ server {
 	add_header X-Content-Type-Options nosniff;	
 	
 	root /var/www/html;
+	index	index.php;
 	
 	location / {
 		try_files $uri /index.php$is_args$args;
